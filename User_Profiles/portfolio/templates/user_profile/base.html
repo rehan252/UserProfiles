@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+      integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a class="navbar-brand" href="{% url 'user_profile:index' %}">Home</a> </li>
+                <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a> </li>
+
+                {% if user.is_authenticated %}
+                    <li><a class="navbar-link" href="{% url 'user_profile:logout' %}">Logout</a> </li>
+                    <li><a class="navbar-link" href="{% url 'user_profile:profile' %}">Profile</a> </li>
+                    <li><a class="navbar-link" href="{% url 'user_profile:edit_profile' %}">Edit Profile</a> </li>
+                    <li><a class="navbar-link" href="{% url 'user_profile:change-password' %}">Change Password</a> </li>
+                {% else %}
+                    <li><a class="navbar-link" href="{% url 'user_profile:user_login' %}">Login</a> </li>
+                    <li><a class="navbar-link" href="{% url 'user_profile:register' %}">Register</a> </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+<div class="container">
+    <div class="jumbotron">
+        {% block body_block %}
+        {% endblock %}
+    </div>
+
+</div>
+</body>
+</html>

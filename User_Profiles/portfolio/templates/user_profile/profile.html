@@ -1,0 +1,11 @@
+{% extends 'user_profile/base.html' %}
+{% block body_block %}
+
+<div class="container">
+    <img src="{{ user.userprofileinfo.profile_pic.url }}" width="500" height="500">
+    <h1>Welcome {{ user.username }}</h1>
+    <p>Name: {{ user.first_name }} {{user.last_name}}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Portfolio Site: {{ user.userprofileinfo.portfolio_site }}</p>
+</div>
+{% endblock %}
