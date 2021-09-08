@@ -2,7 +2,7 @@ argon2-cffi==19.2.0
 bcrypt==3.1.7
 cffi==1.13.2
 Django==2.2.7
-Pillow==6.2.1
+Pillow==8.3.2
 pycparser==2.19
 pytz==2019.3
 six==1.13.0
